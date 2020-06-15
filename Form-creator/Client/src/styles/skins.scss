@@ -1,0 +1,9 @@
+$formBackground: lightblue;
+$borderGray: 1px solid gray;
+
+
+
+@mixin buttonSize{
+    width: 15px;
+    height: 15px;
+}

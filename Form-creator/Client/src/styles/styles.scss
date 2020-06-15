@@ -1,0 +1,58 @@
+@use 'textCenter.scss' as text;
+@use 'skins.scss' as skin;
+/*
+#formContainer{
+  width: 25%;
+   @include posLeft.leftRelative;
+}
+#valueContainer{
+  width: 40%;
+  @include posLeft.leftRelative;
+  border-bottom: skin.$borderGray;
+}
+.formObject{
+  margin-bottom: 5px;
+  background-color: skin.$formBackground;
+  width: 25%;
+}
+.deleteValue{
+  position: absolute;
+  border: none;
+  outline:none;
+  background-image: url('/forms/dist/xbut.png');
+  margin: 3px;
+  left: 25%;
+  @include skin.buttonSize;
+  
+}
+.formInput{
+  margin-bottom: 15px;
+}
+*/
+form{
+  border-radius: 25px;
+  background: #73AD21;
+  @include text.form;
+}
+table{
+  padding-top: 20px;
+}
+body{
+  background-color: skin.$formBackground;
+  @include text.textProp;
+}
+tr{
+  border: 40px;
+  border-color: black;
+}
+th{
+  background-color: rgb(134, 206, 230);
+}
+td{
+  background-color: lightgray;
+}
+button{
+  background-image: url('/dist/xbut.png');
+  @include skin.buttonSize;
+}
+

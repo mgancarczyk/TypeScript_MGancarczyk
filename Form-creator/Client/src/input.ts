@@ -187,4 +187,58 @@ class EmailField implements Field {
     }
 }
 
-export {CheckboxField, RadioField, EmailField, DateField, TextAreaField, InputField};
+class SelectField implements Field {
+    name: string;
+    label: string;
+    type: FieldType;
+    element: HTMLSelectElement;
+    constructor(name: string, label: string) {
+        this.element =
+    <HTMLSelectElement>document.createElement('select');
+        this.name = name;
+        this.label = label;
+        this.element.name = this.name;
+
+    }
+    render(): HTMLElement {
+        const div = document.createElement('div');
+        const label = <HTMLLabelElement> document.createElement('label');
+        label.htmlFor = this.element.id;
+        label.innerText = this.label;
+
+        div.appendChild(label);
+        div.appendChild(this.element);
+
+        this.fetchOptions<{ name: string, region: string }>("https://restcountries.eu/rest/v2/all").then((data) => {
+            data.filter(x => x.region === 'Europe').map(x => x.name).forEach(e => {
+                let option = <HTMLOptionElement>document.createElement("option");
+                option.id = 'countries';
+                option.text = e;
+                option.value = e;
+                this.element.options.add(option);
+            })
+        });
+
+        return div
+
+    }
+    fetchOptions<T>(url: string): Promise<T[]> {
+        return fetch(url)
+            .then(res => res.json())
+            .then(res => {
+                return res;
+            })
+            .catch((e) => {
+                console.log("API errore fetching ");
+            });
+    }
+
+    getValue(): any {
+        return this.element.value
+    }
+    setValue(value): void {
+        this.element.value = value
+    }
+}
+
+export {CheckboxField, RadioField, EmailField, DateField, TextAreaField, InputField, SelectField};

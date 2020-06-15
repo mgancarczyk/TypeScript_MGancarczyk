@@ -13,7 +13,6 @@ class Form {
     constructor(id: string) {
         this.fields = new Array();
         this.formElement = <HTMLFormElement>document.getElementById(id);
-        this.results = new Table("wyniki")
     }
 
     render(): void {
@@ -25,6 +24,7 @@ class Form {
             socket.send(JSON.stringify(this.getValue()))
             this.clean();
         });
+        this.results = new Table("wyniki", this.fields)
     }
 
     getValue(): object {

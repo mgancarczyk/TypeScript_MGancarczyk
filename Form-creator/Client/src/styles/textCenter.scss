@@ -1,0 +1,13 @@
+@mixin textProp {
+    text-align: center;
+    position: relative;
+    font-family: 'Roboto';
+}
+@mixin form {
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 40%;
+    margin-right: 34%;
+    text-align: left;
+}
