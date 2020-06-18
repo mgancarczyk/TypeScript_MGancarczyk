@@ -8,9 +8,9 @@ class InputField implements Field {
     constructor(name: string, label: string) {
         this.element =
     <HTMLInputElement>document.createElement('input');
-        this.name = name;
+        //this.name = name;
         this.label = label;
-        this.element.name = this.name;
+        //this.element.name = this.name;
         this.element.type = FieldType.textInput;
     }
     render(): HTMLElement {
